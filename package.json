@@ -1,0 +1,50 @@
+{
+  "name": "cldr-data-downloader",
+  "version": "0.0.1",
+  "keywords": [
+    "unicode",
+    "CLDR",
+    "JSON",
+    "data",
+    "install",
+    "download",
+    "fetch"
+  ],
+  "description": "Download tool for Unicode CLDR JSON data",
+  "homepage": "https://github.com/rxaviers/cldr-data-downloader",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rxaviers/cldr-data-downloader.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/rxaviers/cldr-data-downloader/blob/master/LICENSE-MIT"
+    }
+  ],
+  "author": {
+    "name": "Rafael Xavier de Souza",
+    "email": "rxaviers@gmail.com",
+    "url": "http://rafael.xavier.blog.br"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "dependencies": {
+    "adm-zip": "0.4.4",
+    "mkdirp": "0.5.0",
+    "npmconf": "2.0.9",
+    "progress": "1.1.8",
+    "q": "1.0.1",
+    "request": "2.44.0",
+    "request-progress": "0.3.1",
+    "rimraf": "~2.2.2"
+  },
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-contrib-jshint": "0.10.x",
+    "grunt-dco": "0.0.3",
+    "matchdep": "*"
+  }
+}
