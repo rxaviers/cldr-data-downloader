@@ -12,8 +12,5 @@
   "undef": true,
   "unused": true,
 
-  "node": true,
-  "globals": {
-    "exit": false
-  }
+  "node": true
 }

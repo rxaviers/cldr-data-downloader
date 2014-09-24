@@ -17,10 +17,10 @@ var unpack = require("./lib/unpack");
 Q.longStackSupport = true;
 
 module.exports = function(srcUrl, destPath, callback) {
-  assert(typeof srcUrl === "string", "must include srcUrl (e.g," +
+  assert(typeof srcUrl === "string", "must include srcUrl (e.g., " +
     "\"http://www.unicode.org/Public/cldr/26/json.zip\")");
 
-  assert(typeof destPath === "string", "must include destPath (e.g," +
+  assert(typeof destPath === "string", "must include destPath (e.g., " +
     "\"./cldr\")");
 
   assert(typeof callback === "function", "must include callback function");
