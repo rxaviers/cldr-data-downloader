@@ -41,7 +41,7 @@ module.exports = function(srcUrl, destPath, options, callback) {
   Q.try(function() {
     state = new State(srcUrl, destPath);
 
-    if(!options.force && state.isInstalled()) {
+    if (!options.force && state.isInstalled()) {
       error = new Error("Already downloaded and unpacked, quitting... Use " +
         "`options.force = true` to override.");
       error.code = "E_ALREADY_INSTALLED";
