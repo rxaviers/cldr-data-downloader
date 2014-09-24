@@ -42,13 +42,10 @@ module.exports = function(srcUrl, destPath, options, callback) {
   Q.try(function() {
 
     // Is srcUrl a config file?
-    console.log("isUrl", isUrl(srcUrl), "ext", (/.json$/i).test(srcUrl));
     if (!isUrl(srcUrl) && (/.json$/i).test(srcUrl)) {
       // Read its URL.
       options.srcUrlKey = options.srcUrlKey || "json";
-      console.log("options.srcUrlKey", options.srcUrlKey);
       srcUrl = readJSON(srcUrl)[options.srcUrlKey];
-      console.log("=>", srcUrl);
     }
 
     // Is it already installed?
