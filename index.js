@@ -10,7 +10,9 @@
 
 var assert = require("assert");
 var download = require("./lib/download");
+var isUrl = require("./lib/util").isUrl;
 var Q = require("q");
+var readJSON = require("./lib/util").readJSON;
 var State = require("./lib/state");
 var unpack = require("./lib/unpack");
 
@@ -37,10 +39,20 @@ module.exports = function(srcUrl, destPath, options, callback) {
 
   assert(typeof callback === "function", "must include callback function");
 
-  // Is it already installed?
   Q.try(function() {
-    state = new State(srcUrl, destPath);
 
+    // Is srcUrl a config file?
+    console.log("isUrl", isUrl(srcUrl), "ext", (/.json$/i).test(srcUrl));
+    if (!isUrl(srcUrl) && (/.json$/i).test(srcUrl)) {
+      // Read its URL.
+      options.srcUrlKey = options.srcUrlKey || "json";
+      console.log("options.srcUrlKey", options.srcUrlKey);
+      srcUrl = readJSON(srcUrl)[options.srcUrlKey];
+      console.log("=>", srcUrl);
+    }
+
+    // Is it already installed?
+    state = new State(srcUrl, destPath);
     if (!options.force && state.isInstalled()) {
       error = new Error("Already downloaded and unpacked, quitting... Use " +
         "`options.force = true` to override.");
@@ -49,11 +61,13 @@ module.exports = function(srcUrl, destPath, options, callback) {
     }
 
   // Download
-  }).then(download({
-    url: srcUrl
+  }).then(function() {
+    return download({
+      url: srcUrl
+    });
 
   // Unpack
-  })).then(unpack({
+  }).then(unpack({
     path: destPath
 
   // Save installation state

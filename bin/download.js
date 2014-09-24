@@ -22,11 +22,14 @@ function help() {
     "Usage: download -i srcUrl -o destPath",
     "",
     "General options:",
-    "  -h, --help              # Print options and usage",
-    "  -v, --version           # Print the version number",
-    "  -i, --input             # Source URL for the Unicode CLDR JSON zip",
-    "  -o, --output            # Destination path to unpack JSONs at",
-    "  -f, --force             # Force to re-download and to re-unpack",
+    "  -h, --help              # Print options and usage.",
+    "  -v, --version           # Print the version number.",
+    "  -i, --input             # Source URL for the Unicode CLDR JSON zip,",
+    "                          # or a JSON config file with a `json` key",
+    "                          # pointing to a URL value. Use --src-url-key to",
+    "                          # set a different key.",
+    "  -o, --output            # Destination path to unpack JSONs at.",
+    "  -f, --force             # Force to re-download and to re-unpack.",
     ""
   ];
 
@@ -38,6 +41,7 @@ opts = nopt({
   help: Boolean,
   version: Boolean,
   input: String,
+  "src-url-key": String,
   output: path,
   force: Boolean
 }, {
@@ -61,9 +65,8 @@ if (opts.help || !requiredOpts) {
   return console.log(help());
 }
 
-if (opts.force) {
-  options.force = true;
-}
+options.force = opts.force;
+options.srcUrlKey = opts["src-url-key"];
 
 download(opts.input, opts.output, options, function(error) {
   if (error) {
