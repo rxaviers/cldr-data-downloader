@@ -8,20 +8,38 @@ A Node.js download tool for [Unicode CLDR JSON][] data.
 
     $ npm install cldr-data-downloader
 
-    $ node <<EOF
-    cldrDownloader = require("cldr-data-downloader");
-    cldrDownloader(
-      "http://www.unicode.org/Public/cldr/26/json.zip",
-      "./cldr",
-      function(error) {
-        if (error) {
-          console.error("Whops", error.message);
-          exit(1);
-        }
-        console.log("Done");
-      }
-    );
-    EOF
+Using the CLI:
+
+    $ ./node_modules/cldr-data-downloader/bin/download.js \
+        -i http://www.unicode.org/Public/cldr/26/json.zip \
+        -o ./cldr
+
+    GET `http://www.unicode.org/Public/cldr/26/json.zip`
+      [========================================] 100% 0.0s
+    Received 3425K total.
+    
+    Unpacking it into ./cldr
+    Done
+
+Using JavaScript:
+
+```javascript
+// my-downloader.js:
+cldrDownloader = require("cldr-data-downloader");
+cldrDownloader(
+  "http://www.unicode.org/Public/cldr/26/json.zip",
+  "./cldr",
+  function(error) {
+    if (error) {
+      console.error("Whops", error.message);
+      exit(1);
+    }
+    console.log("Done");
+  }
+);
+```
+
+    $ node < my-download.js
 
     GET `http://www.unicode.org/Public/cldr/26/json.zip`
       [========================================] 100% 0.0s
