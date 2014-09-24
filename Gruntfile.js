@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     pkg: pkg,
     jshint: {
       source: {
-        src: [ "install.js", "lib/**" ],
+        src: [ "index.js", "bin/**.js", "lib/**.js" ],
         options: {
           jshintrc: ".jshintrc"
         }

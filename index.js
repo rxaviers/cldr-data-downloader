@@ -1,5 +1,5 @@
 /**
- * Download tool for Unicode CLDR JSON data.
+ * Download tool for Unicode CLDR JSON data
  *
  * Copyright 2013 Rafael Xavier de Souza
  * Released under the MIT license
@@ -10,7 +10,6 @@
 
 var assert = require("assert");
 var download = require("./lib/download");
-var path = require("path");
 var Q = require("q");
 var unpack = require("./lib/unpack");
 
