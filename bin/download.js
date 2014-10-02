@@ -79,5 +79,4 @@ download(opts.input, opts.output, options, function(error) {
       exit(1);
     }
   }
-  console.log("Done");
 });
