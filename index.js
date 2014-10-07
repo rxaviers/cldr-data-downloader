@@ -71,7 +71,7 @@ module.exports = function(srcUrl, destPath, options, callback) {
   // Generate available locales.
   })).then(function() {
     try {
-      new AvailableLocales("lalallom").write();
+      new AvailableLocales(destPath).write();
     } catch(error) {
       error.message = "Error generating available locales. " + error.message;
       throw error;
