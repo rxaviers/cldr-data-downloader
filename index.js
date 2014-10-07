@@ -9,6 +9,7 @@
 "use strict";
 
 var assert = require("assert");
+var AvailableLocales = require("./lib/available_locales");
 var download = require("./lib/download");
 var isUrl = require("./lib/util").isUrl;
 var Q = require("q");
@@ -67,8 +68,12 @@ module.exports = function(srcUrl, destPath, options, callback) {
   }).then(unpack({
     path: destPath
 
-  // Save installation state
   })).then(function() {
+
+    // Generate available locales.
+    new AvailableLocales(destPath).write();
+
+    // Save installation state.
     state.write();
 
   // Done
