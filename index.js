@@ -68,13 +68,23 @@ module.exports = function(srcUrl, destPath, options, callback) {
   }).then(unpack({
     path: destPath
 
+  // Generate available locales.
   })).then(function() {
+    try {
+      new AvailableLocales("lalallom").write();
+    } catch(error) {
+      error.message = "Error generating available locales. " + error.message;
+      throw error;
+    }
 
-    // Generate available locales.
-    new AvailableLocales(destPath).write();
-
-    // Save installation state.
-    state.write();
+  // Save installation state.
+  }).then(function() {
+    try {
+      state.write();
+    } catch(error) {
+      error.message = "Error saving installation state. " + error.message;
+      throw error;
+    }
 
   // Done
   }).catch(callback).done(function() {
