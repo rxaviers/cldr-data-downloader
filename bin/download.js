@@ -11,6 +11,7 @@
 "use strict";
 
 var download = require("../index");
+var exit = process.exit;
 var nopt = require("nopt");
 var path = require("path");
 var pkg = require("../package.json");
