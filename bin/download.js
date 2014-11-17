@@ -27,8 +27,9 @@ function help() {
     "  -v, --version           # Print the version number.",
     "  -i, --input             # Source URL for the Unicode CLDR JSON zip,",
     "                          # or a JSON config file with a `json` key",
-    "                          # pointing to a URL value. Use --src-url-key to",
-    "                          # set a different key.",
+    "                          # pointing to a URL value. Use --src-url-key",
+    "                          # (or its alias --coverage) to set a different",
+    "                          # key.",
     "  -o, --output            # Destination path to unpack JSONs at.",
     "  -f, --force             # Force to re-download and to re-unpack.",
     ""
@@ -43,6 +44,7 @@ opts = nopt({
   version: Boolean,
   input: String,
   "src-url-key": String,
+  "coverage": String,
   output: path,
   force: Boolean
 }, {
@@ -67,7 +69,7 @@ if (opts.help || !requiredOpts) {
 }
 
 options.force = opts.force;
-options.srcUrlKey = opts["src-url-key"];
+options.srcUrlKey = opts["src-url-key"] || opts.coverage;
 
 download(opts.input, opts.output, options, function(error) {
   if (error) {
