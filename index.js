@@ -45,7 +45,7 @@ module.exports = function(srcUrl, destPath, options, callback) {
     // Is srcUrl a config file?
     if (!isUrl(srcUrl) && (/.json$/i).test(srcUrl)) {
       // Read its URL.
-      options.srcUrlKey = options.srcUrlKey || "json";
+      options.srcUrlKey = options.srcUrlKey || "core";
       srcUrl = readJSON(srcUrl)[options.srcUrlKey];
     }
 
