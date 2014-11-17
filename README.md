@@ -10,7 +10,7 @@ A Node.js download tool for [Unicode CLDR JSON][] data.
 
 Using the CLI:
 
-    $ ./node_modules/cldr-data-downloader/bin/download.js \
+    $ ./node_modules/cldr-data-downloader/bin/download.sh \
         -i http://www.unicode.org/Public/cldr/26/json.zip \
         -o ./cldr
 
@@ -20,6 +20,8 @@ Using the CLI:
     
     Unpacking it into ./cldr
     Done
+
+Windows users can use `node ./bin/download.js ...` instead.
 
 Using JavaScript:
 
