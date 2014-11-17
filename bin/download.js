@@ -24,7 +24,7 @@ function help() {
     "  -h, --help              # Print options and usage.",
     "  -v, --version           # Print the version number.",
     "  -i, --input             # Source URL for the Unicode CLDR JSON zip,",
-    "                          # or a JSON config file with a `json` key",
+    "                          # or a JSON config file with a `core` key",
     "                          # pointing to a URL value. Use --src-url-key",
     "                          # (or its alias --coverage) to set a different",
     "                          # key.",
