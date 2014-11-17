@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * Download tool for Unicode CLDR JSON data
  *
