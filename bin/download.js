@@ -9,7 +9,6 @@
 "use strict";
 
 var download = require("../index");
-var exit = process.exit;
 var nopt = require("nopt");
 var path = require("path");
 var pkg = require("../package.json");
@@ -77,7 +76,7 @@ download(opts.input, opts.output, options, function(error) {
       return console.log(error.message);
     } else {
       console.error("Whops", error.message);
-      exit(1);
+      process.exit(1);
     }
   }
 });
