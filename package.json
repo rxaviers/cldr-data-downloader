@@ -28,6 +28,9 @@
     "url": "http://rafael.xavier.blog.br"
   },
   "main": "index.js",
+  "bin": {
+    "cldr-data-downloader": "./bin/download.sh"
+  },
   "scripts": {
     "test": "grunt"
   },
