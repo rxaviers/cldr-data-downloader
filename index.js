@@ -12,12 +12,19 @@ var assert = require("assert");
 var AvailableLocales = require("./lib/available_locales");
 var download = require("./lib/download");
 var isUrl = require("./lib/util").isUrl;
+var progress = require("./lib/progress");
 var Q = require("q");
 var readJSON = require("./lib/util").readJSON;
 var State = require("./lib/state");
 var unpack = require("./lib/unpack");
 
 Q.longStackSupport = true;
+
+function alwaysArray(arrayOrSomething) {
+  return Array.isArray(arrayOrSomething) ?
+    arrayOrSomething :
+    arrayOrSomething ? [arrayOrSomething] : [];
+}
 
 /**
  * fn( srcUrl, destPath [, options], callback )
@@ -60,9 +67,12 @@ module.exports = function(srcUrl, destPath, options, callback) {
 
   // Download
   }).then(function() {
-    return download({
-      url: srcUrl
-    });
+    var srcUrls = alwaysArray(srcUrl);
+    return Q.all(srcUrls.map(function(srcUrl) {
+      return download({
+        url: srcUrl
+      });
+    })).progress(progress(srcUrl.length));
 
   // Unpack
   }).then(unpack({
