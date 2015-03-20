@@ -19,6 +19,12 @@ var unpack = require("./lib/unpack");
 
 Q.longStackSupport = true;
 
+function alwaysArray(arrayOrSomething) {
+  return Array.isArray(arrayOrSomething) ?
+    arrayOrSomething :
+    arrayOrSomething ? [arrayOrSomething] : [];
+}
+
 /**
  * fn( srcUrl, destPath [, options], callback )
  */
@@ -60,9 +66,11 @@ module.exports = function(srcUrl, destPath, options, callback) {
 
   // Download
   }).then(function() {
-    return download({
-      url: srcUrl
-    });
+    return Q.all(alwaysArray(srcUrl).map(function(srcUrl) {
+      return download({
+        url: srcUrl
+      });
+    }));
 
   // Unpack
   }).then(unpack({
