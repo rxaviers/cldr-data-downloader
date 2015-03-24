@@ -72,7 +72,7 @@ module.exports = function(srcUrl, destPath, options, callback) {
       return download({
         url: srcUrl
       });
-    })).progress(progress(srcUrl.length));
+    })).progress(progress(srcUrls.length));
 
   // Unpack
   }).then(unpack({
