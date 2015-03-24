@@ -37,8 +37,8 @@ module.exports = function(srcUrl, destPath, options, callback) {
     options = {};
   }
 
-  assert(typeof srcUrl === "string" || Array.isArray(srcUrl), "must include" +
-    "srcUrl (e.g., \"http://www.unicode.org/Public/cldr/26/json.zip\")");
+  assert(typeof srcUrl === "string", "must include srcUrl (e.g., " +
+    "\"http://www.unicode.org/Public/cldr/26/json.zip\")");
 
   assert(typeof destPath === "string", "must include destPath (e.g., " +
     "\"./cldr\")");
