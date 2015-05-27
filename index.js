@@ -97,7 +97,9 @@ module.exports = function(srcUrl, destPath, options, callback) {
     }
 
   // Done
-  }).catch(callback).done(function() {
-    callback();
+  }).catch(function (errorCatched) {
+		error = errorCatched;
+	}).done(function() {
+    callback(error);
   });
 };
