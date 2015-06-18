@@ -97,7 +97,5 @@ module.exports = function(srcUrl, destPath, options, callback) {
     }
 
   // Done
-  }).catch(callback).done(function() {
-    callback();
-  });
+  }).nodeify(callback);
 };
