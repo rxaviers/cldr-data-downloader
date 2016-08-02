@@ -1,6 +1,6 @@
 {
   "name": "cldr-data-downloader",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "keywords": [
     "unicode",
     "CLDR",
