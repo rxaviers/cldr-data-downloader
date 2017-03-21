@@ -29,6 +29,8 @@ function help() {
     "                          # key.",
     "  -o, --output            # Destination path to unpack JSONs at.",
     "  -f, --force             # Force to re-download and to re-unpack.",
+    "  --filter                # Regexp URL mask: '(core|numbers)' etc. Useful",
+    "                          # when input is for external .json config",
     ""
   ];
 
@@ -42,6 +44,7 @@ opts = nopt({
   input: String,
   "src-url-key": String,
   "coverage": String,
+  filter: String,
   output: path,
   force: Boolean
 }, {
@@ -66,6 +69,7 @@ if (opts.help || !requiredOpts) {
 }
 
 options.force = opts.force;
+options.filterRe = opts.filter;
 options.srcUrlKey = opts["src-url-key"] || opts.coverage;
 
 download(opts.input, opts.output, options, function(error) {

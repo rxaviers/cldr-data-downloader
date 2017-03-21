@@ -68,6 +68,18 @@ module.exports = function(srcUrl, destPath, options, callback) {
   // Download
   }).then(function() {
     var srcUrls = alwaysArray(srcUrl);
+
+    if (options.filterRe) {
+      var filterRe = options.filterRe;
+      if (typeof filterRe === 'string') {
+        filterRe = new RegExp(filterRe);
+      }
+
+      srcUrls = srcUrls.filter(function(url) {
+        return filterRe.test(url);
+      });
+    }
+
     return Q.all(srcUrls.map(function(srcUrl) {
       return download({
         url: srcUrl
