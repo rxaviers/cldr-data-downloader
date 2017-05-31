@@ -29,6 +29,7 @@ module.exports = function(grunt) {
     dco: {
       current: {
         options: {
+          committish: "0b0ab50702b7bca7ae5e084b1b8732a39582d2b4..HEAD",
           exceptionalAuthors: {
             "rxaviers@gmail.com": "Rafael Xavier de Souza"
           }
