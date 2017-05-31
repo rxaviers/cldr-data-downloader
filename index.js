@@ -71,7 +71,7 @@ module.exports = function(srcUrl, destPath, options, callback) {
 
     if (options.filterRe) {
       var filterRe = options.filterRe;
-      if (typeof filterRe === 'string') {
+      if (typeof filterRe === "string") {
         filterRe = new RegExp(filterRe);
       }
 

@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "grunt": "0.4.x",
-    "grunt-contrib-jshint": "0.10.x",
+    "grunt-contrib-jshint": "0.12.x",
     "grunt-dco": "0.0.3",
     "matchdep": "*"
   }
