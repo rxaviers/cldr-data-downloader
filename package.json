@@ -35,7 +35,7 @@
     "test": "grunt"
   },
   "dependencies": {
-    "adm-zip": "0.4.4",
+    "adm-zip": "0.4.11",
     "mkdirp": "0.5.0",
     "nopt": "3.0.x",
     "progress": "1.1.8",
