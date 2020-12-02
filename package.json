@@ -35,14 +35,14 @@
     "test": "grunt"
   },
   "dependencies": {
-    "adm-zip": "0.5.3",
     "axios": "^0.26.0",
     "mkdirp": "0.5.5",
     "nopt": "3.0.x",
-    "q": "1.0.1"
+    "q": "1.0.1",
+    "yauzl": "^2.10.0"
   },
   "devDependencies": {
-    "grunt": "1.3.x",
+    "grunt": "^1.3.0",
     "grunt-contrib-jshint": "0.12.x",
     "grunt-dco": "0.0.3",
     "matchdep": "*"
