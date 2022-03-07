@@ -36,12 +36,11 @@
   },
   "dependencies": {
     "adm-zip": "0.4.13",
+    "axios": "^0.26.0",
     "mkdirp": "0.5.5",
     "nopt": "3.0.x",
     "progress": "1.1.8",
-    "q": "1.0.1",
-    "request": "~2.87.0",
-    "request-progress": "0.3.1"
+    "q": "1.0.1"
   },
   "devDependencies": {
     "grunt": "0.4.x",
