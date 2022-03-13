@@ -39,7 +39,6 @@
     "axios": "^0.26.0",
     "mkdirp": "0.5.5",
     "nopt": "3.0.x",
-    "progress": "1.1.8",
     "q": "1.0.1"
   },
   "devDependencies": {
