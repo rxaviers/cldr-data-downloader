@@ -12,7 +12,6 @@ var assert = require("assert");
 var AvailableLocales = require("./lib/available_locales");
 var download = require("./lib/download");
 var isUrl = require("./lib/util").isUrl;
-var progress = require("./lib/progress");
 var Q = require("q");
 var readJSON = require("./lib/util").readJSON;
 var State = require("./lib/state");
@@ -84,7 +83,7 @@ module.exports = function(srcUrl, destPath, options, callback) {
       return download({
         url: srcUrl
       });
-    })).progress(progress(srcUrls.length));
+    }));
 
   // Unpack
   }).then(unpack({
